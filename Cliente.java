@@ -11,7 +11,7 @@ public class Cliente
     private int numeroCliente;
     private Cliente siguienteEnCola;
     private int numeroDeBocadillos;
-    private static int numeroClienteActual = 1;
+    private static int numeroClienteActual = 0;
 
     /**
      * Constructor for objects of class Cliente
@@ -19,17 +19,19 @@ public class Cliente
      */
     public Cliente(int numeroDeBocadillos)
     {
-        numeroCliente = 0;
+        numeroCliente = numeroClienteActual + 1;
+        numeroClienteActual = numeroCliente;
         siguienteEnCola = null;
         this.numeroDeBocadillos = numeroDeBocadillos;
 
     }
 
     /**
-     * 
+     * indica que cliente es el siguiente
+     * @return siguienteEnCola
      */
     public Cliente getSiguienteEnLaCola(){
-        return null;
+        return siguienteEnCola;
     }
 
     /**
@@ -44,7 +46,7 @@ public class Cliente
      * numero del cliente
      * @return retorna el numero del cliente
      */
-    public int intgetNumeroCliente(){
+    public int getNumeroCliente(){
         return 0;
     }
 
@@ -60,6 +62,6 @@ public class Cliente
      * selecciona el siguiente cliente enla cola
      */
     public void setSiguienteEnLaCola(Cliente cliente){
-
+        siguienteEnCola = cliente;
     }
 }

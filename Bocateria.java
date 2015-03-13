@@ -8,10 +8,10 @@ import java.lang.Integer;
  */
 public class Bocateria
 {
-   private Cliente primeraPersonaEnCola; 
-   private int facturacionActual;
-   private HashMap<Integer,Cliente> clientesDespachados;
-   private int PRECIO_BOCADILLO = 5;
+    private Cliente primeraPersonaEnCola; 
+    private int facturacionActual;
+    private HashMap<Integer,Cliente> clientesDespachados;
+    private int PRECIO_BOCADILLO = 5;
 
     /**
      * Constructor for objects of class Bocateria
@@ -21,11 +21,57 @@ public class Bocateria
         primeraPersonaEnCola = null;
         facturacionActual = 0;
         clientesDespachados = new HashMap<>();
-      
+
     }
 
-    public void llegaNuevoClienteALaCola(){
-        
-        
+    /**
+     * llegada un nuevo cliente a la cola
+     */
+    public void llegaNuevoClienteALaCola(int numeroDeBocadillos){
+        if(primeraPersonaEnCola == null){
+            primeraPersonaEnCola = new Cliente(numeroDeBocadillos);
+        }
+        else{
+            //si solo hay una persona en la cola
+            if(primeraPersonaEnCola.getSiguienteEnLaCola() == null){
+                primeraPersonaEnCola.setSiguienteEnLaCola(new Cliente(numeroDeBocadillos));
+            }
+            //si hay mas de uno buscamos al ultimo y se lo agamoscomo sigueinte en la cola
+            else{
+                Cliente ultimo = primeraPersonaEnCola.getSiguienteEnLaCola();
+                while(ultimo.getSiguienteEnLaCola()!= null){
+                    ultimo = ultimo.getSiguienteEnLaCola();
+                }
+                ultimo.setSiguienteEnLaCola(new Cliente(numeroDeBocadillos));
+            }
+        }
+
+    }
+
+    public void visualizaDatosClientesEnCola(){
+
+    }
+
+    public void despacharClienteActual(){
+
+    }
+
+    public void visualizaDatosBocateria(){
+    }
+    
+    /**
+     *@return numero delprimercliente con mas bocadillos
+     */
+    public int getPosicionPrimerClienteConMasBocadillos(){
+        return 0;
+
+    }
+
+    public void clienteAbandonaCola(int id){
+
+    }
+
+    public void ordenarColaPorNumeroDeBocadillos(){
+
     }
 }
