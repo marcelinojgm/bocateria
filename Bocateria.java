@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.lang.Integer;
 import java.util.Iterator;
+import java.util.ArrayList;
 /**
  * simula una bocateria donde se reparten bocadillos a clientes en una cola
  * 
@@ -153,6 +154,41 @@ public class Bocateria
      * ordena a los clientes en la fila por elnumero de bocadillos 
      */
     public void ordenarColaPorNumeroDeBocadillos(){
+        ArrayList<Cliente> ordenada =new ArrayList<>();
+        //bamos buscando lapersona con mas bocadillos y la sacamos de la cola y la metemos en ordenar
+        while(primeraPersonaEnCola != null){
+            //buscamosla que mas bocadillos tiene
+            int id =  getPosicionPrimerClienteConMasBocadillos();
+            Cliente cliente = primeraPersonaEnCola;
+            //si es la primera persona
+            if(cliente.getNumeroCliente()== id){
+                
+                ordenada.add(primeraPersonaEnCola);
+                primeraPersonaEnCola = primeraPersonaEnCola.getSiguienteEnLaCola();
+            }
+            //si no es la primera persona 
+            else{
+                boolean found = false;
+                //mayor numero de bocadillos
 
+                while(cliente != null && !found){
+                    Cliente  sigueinteCliente = cliente.getSiguienteEnLaCola();
+                    if(sigueinteCliente.getNumeroCliente() == id){
+                        cliente.setSiguienteEnLaCola(sigueinteCliente.getSiguienteEnLaCola());
+                        ordenada.add(cliente);
+                        found= true;
+                    }
+                    cliente = cliente.getSiguienteEnLaCola();
+                }
+
+            }
+        }
+        
+        //reacemos en cola segun los guardados en ordenado
+        primeraPersonaEnCola = ordenada.remove(0);
+        Cliente cliente = primeraPersonaEnCola;
+        while(ordenada.size()>0){
+           cliente.setSiguienteEnLaCola(ordenada.remove(0));
+        }
     }
 }
