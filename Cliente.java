@@ -48,7 +48,7 @@ public class Cliente
      * @return retorna el numero del cliente
      */
     public int getNumeroCliente(){
-        return 0;
+        return numeroCliente;
     }
 
     /**
