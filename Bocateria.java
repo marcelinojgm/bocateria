@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.lang.Integer;
+import java.util.Iterator;
 /**
  * simula una bocateria donde se reparten bocadillos a clientes en una cola
  * 
@@ -55,7 +56,6 @@ public class Bocateria
             cliente = cliente.getSiguienteEnLaCola();
         }
 
-
     }
 
     public void despacharClienteActual(){
@@ -71,6 +71,20 @@ public class Bocateria
     }
 
     public void visualizaDatosBocateria(){
+        System.out.println("Facturacion actual: " + facturacionActual + " euros");
+        if(primeraPersonaEnCola != null){
+            System.out.println("Estado de la cola:");
+            visualizaDatosClientesEnCola();
+        }
+
+        if(!clientesDespachados.isEmpty()){
+
+            System.out.println("Clientes despachados:" );
+            //recorremos cada cliente ya despachado
+            for (Cliente cliente : clientesDespachados.values() ) {
+                System.out.println(cliente.toString());
+            }
+        }
     }
 
     /**
