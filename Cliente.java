@@ -40,7 +40,7 @@ public class Cliente
      * @return numeroDeBocadillos
      */
     public int getNumeroDeBocadillos(){
-        return 0;
+        return numeroDeBocadillos;
     }
 
     /**
@@ -55,7 +55,7 @@ public class Cliente
      * @return cadena con los datos del cleinte
      */
     public String toString(){
-        return "Cliente " + numeroCliente + " "+ numeroDeBocadillos + " bocadillo/s " ;
+        return "Cliente " + numeroCliente + ": "+ numeroDeBocadillos + " bocadillo/s " ;
 
     }
 

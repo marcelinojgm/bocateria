@@ -49,6 +49,13 @@ public class Bocateria
     }
 
     public void visualizaDatosClientesEnCola(){
+        Cliente cliente = primeraPersonaEnCola;
+        while(cliente != null){
+            System.out.println(cliente.toString() + " ("+ cliente.getNumeroDeBocadillos()* PRECIO_BOCADILLO + ")");
+            cliente = cliente.getSiguienteEnLaCola();
+        }
+            
+        
 
     }
 
