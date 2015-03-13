@@ -52,10 +52,10 @@ public class Cliente
     }
 
     /**
-     * datos del cleinte
+     * @return cadena con los datos del cleinte
      */
     public String toString(){
-        return "";
+        return "Cliente " + numeroCliente + " "+ numeroDeBocadillos + " bocadillo/s " ;
 
     }
 
