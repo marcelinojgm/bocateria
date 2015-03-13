@@ -36,7 +36,7 @@ public class Bocateria
             if(primeraPersonaEnCola.getSiguienteEnLaCola() == null){
                 primeraPersonaEnCola.setSiguienteEnLaCola(new Cliente(numeroDeBocadillos));
             }
-            //si hay mas de uno buscamos al ultimo y se lo agamoscomo sigueinte en la cola
+            //si hay mas de uno buscamos al ultimo y se lo asignamoscomo sigueinte en la cola
             else{
                 Cliente ultimo = primeraPersonaEnCola.getSiguienteEnLaCola();
                 while(ultimo.getSiguienteEnLaCola()!= null){
@@ -54,18 +54,25 @@ public class Bocateria
             System.out.println(cliente.toString() + " ("+ cliente.getNumeroDeBocadillos()* PRECIO_BOCADILLO + ")");
             cliente = cliente.getSiguienteEnLaCola();
         }
-            
-        
+
 
     }
 
     public void despacharClienteActual(){
-
+        //si hay gente en la cola
+        if(primeraPersonaEnCola != null){
+            //actulizar facturacion
+            facturacionActual += primeraPersonaEnCola.getNumeroDeBocadillos() * PRECIO_BOCADILLO;
+            //agregamos a despachados
+            clientesDespachados.put(primeraPersonaEnCola.getNumeroCliente(),primeraPersonaEnCola);
+            //avance dela cola
+            primeraPersonaEnCola = primeraPersonaEnCola.getSiguienteEnLaCola();
+        }
     }
 
     public void visualizaDatosBocateria(){
     }
-    
+
     /**
      *@return numero delprimercliente con mas bocadillos
      */
