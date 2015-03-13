@@ -69,7 +69,7 @@ public class Bocateria
             primeraPersonaEnCola = primeraPersonaEnCola.getSiguienteEnLaCola();
         }
     }
-    
+
     /**
      * visualiza los datos de bocateria 
      * facturacion
@@ -94,7 +94,7 @@ public class Bocateria
     }
 
     /**
-     *@return numero del primercliente con mas bocadillos si no hay nadie en cola -1
+     *@return numero del primer cliente con mas bocadillos si no hay nadie en cola -1
      */
     public int getPosicionPrimerClienteConMasBocadillos(){
         int num = -1;
@@ -119,10 +119,39 @@ public class Bocateria
         return num;
     }
 
+    /**
+     * quita a una persona de la cola 
+     */
     public void clienteAbandonaCola(int id){
+        //si hay gente en la cola
+        if(primeraPersonaEnCola != null)
+        {
+            Cliente cliente = primeraPersonaEnCola;
+            //si es la primera persona
+            if(cliente.getNumeroCliente()== id){
+                primeraPersonaEnCola = primeraPersonaEnCola.getSiguienteEnLaCola();
+            }
+            //si no es la primera persona 
+            else{
+                boolean found = false;
+                //mayor numero de bocadillos
 
+                while(cliente != null && !found){
+                    Cliente  sigueinteCliente = cliente.getSiguienteEnLaCola();
+                    if(sigueinteCliente.getNumeroCliente() == id){
+                        cliente.setSiguienteEnLaCola(sigueinteCliente.getSiguienteEnLaCola());
+                        found= true;
+                    }
+                    cliente = cliente.getSiguienteEnLaCola();
+                }
+            }
+
+        }
     }
 
+    /**
+     * ordena a los clientes en la fila por elnumero de bocadillos 
+     */
     public void ordenarColaPorNumeroDeBocadillos(){
 
     }
