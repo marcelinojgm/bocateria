@@ -1,10 +1,10 @@
 import java.util.HashMap;
 import java.lang.Integer;
 /**
- * Write a description of class Bocateria here.
+ * simula una bocateria donde se reparten bocadillos a clientes en una cola
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author marcelinojgm
+ * @version 1.0
  */
 public class Bocateria
 {
@@ -24,5 +24,8 @@ public class Bocateria
       
     }
 
-    
+    public void llegaNuevoClienteALaCola(){
+        
+        
+    }
 }
