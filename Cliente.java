@@ -20,9 +20,10 @@ public class Cliente
     public Cliente(int numeroDeBocadillos)
     {
         numeroCliente = numeroClienteActual + 1;
-        numeroClienteActual = numeroCliente;
-        siguienteEnCola = null;
         this.numeroDeBocadillos = numeroDeBocadillos;
+        numeroClienteActual = numeroCliente;
+        this.numeroDeBocadillos = numeroDeBocadillos;
+        siguienteEnCola = null;
 
     }
 
